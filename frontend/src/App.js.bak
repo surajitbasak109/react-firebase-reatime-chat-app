@@ -1,11 +1,12 @@
 import React, {Component} from "react";
-import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
+import {Route, BrowserRouter as Router, Switch, Redirect} from "react-router-dom";
 import "./App.css";
 import Home from "./containers/Home";
 import Chat from "./containers/Chat";
 import Profile from "./containers/Profile";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
+import firebase from "./services/firebase";
 import {toast, ToastContainer} from "react-toastify";
 
 class App extends Component {
@@ -22,9 +23,34 @@ class App extends Component {
     }
   };
 
+  state = {
+    authenticated: false,
+    loading: true,
+  };
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          authenticated: true,
+          loading: false,
+        });
+      } else {
+        this.setState({
+          authenticated: false,
+          loading: false,
+        });
+      }
+    });
+  }
+
   render() {
     const props = this.props;
-    return (
+    return this.state.loading ? (
+      <div className="spinner-border text-success" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    ) : (
       <Router>
         <ToastContainer
           autoClose={2000}
