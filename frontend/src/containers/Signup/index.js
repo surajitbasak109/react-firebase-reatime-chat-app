@@ -58,6 +58,7 @@ class Signup extends Component {
               id: result.user.uid,
               email,
               password,
+              description: "",
               url: "",
               messages: [{notificationId: "", number: 0}],
               created_at: Date.now(),
@@ -81,7 +82,7 @@ class Signup extends Component {
               this.props.history.push("/chat");
             })
             .catch((err) => {
-              console.log("Error adding document", err);
+              this.setState({error: "Error in signing up, please try again"});
             });
         });
     } catch (e) {
