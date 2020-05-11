@@ -17,6 +17,7 @@ class App extends Component {
         break;
       case 1:
         toast.success(message);
+        break;
       default:
         break;
     }

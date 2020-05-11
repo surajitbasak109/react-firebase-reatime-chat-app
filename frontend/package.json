@@ -27,12 +27,6 @@
     "lint": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md|vue)\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "plugin:prettier/recommended"
-    ]
-  },
   "prettier": {
     "printWidth": 90,
     "bracketSpacing": false,
