@@ -26,20 +26,20 @@ class Signup extends Component {
   async handleSubmit(e) {
     e.preventDefault();
     if (!this.state.email.length) {
-      this.setState(state => {
-        return { error: "Email field cannot be empty" }
+      this.setState((state) => {
+        return {error: "Email field cannot be empty"};
       });
       return false;
     }
     if (!this.state.password.length) {
-      this.setState(state => {
-        return { error: "Password field cannot be empty" }
+      this.setState((state) => {
+        return {error: "Password field cannot be empty"};
       });
       return false;
     }
     if (!this.state.name.length) {
-      this.setState(state => {
-        return { error: "Name field cannot be empty" }
+      this.setState((state) => {
+        return {error: "Name field cannot be empty"};
       });
       return false;
     }
@@ -49,7 +49,7 @@ class Signup extends Component {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
-        .then(async result => {
+        .then(async (result) => {
           firebase
             .firestore()
             .collection("users")
@@ -62,7 +62,7 @@ class Signup extends Component {
               messages: [{notificationId: "", number: 0}],
               created_at: Date.now(),
             })
-            .then(docRef => {
+            .then((docRef) => {
               localStorage.setItem(LoginStrings.ID, result.user.uid);
               localStorage.setItem(LoginStrings.Name, name);
               localStorage.setItem(LoginStrings.Email, email);
@@ -80,16 +80,16 @@ class Signup extends Component {
 
               this.props.history.push("/chat");
             })
-            .catch(err => {
+            .catch((err) => {
               console.log("Error adding document", err);
             });
         });
     } catch (e) {
-      this.setState({error:  "Error in signing up, please try again"})
+      this.setState({error: "Error in signing up, please try again"});
     }
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
   };
 
@@ -187,7 +187,9 @@ class Signup extends Component {
               Please fill all fields and password should be greater than 6
             </p>
             <div className="error">
-              <p id="1" style={{color: "red"}}>{ this.state.error }</p>
+              <p id="1" style={{color: "red"}}>
+                {this.state.error}
+              </p>
             </div>
             <div className="CenterAlignItems">
               <Button variant="primary" className="button1" type="submit">
@@ -201,8 +203,7 @@ class Signup extends Component {
             <div className="copyright">
               <Typography variant="body2" color="textSecondary" align="center">
                 Copyright &copy;
-                <a href="/">Techcet Blog</a> {" "}
-                { new Date().getFullYear() }
+                <a href="/">Techcet Blog</a> {new Date().getFullYear()}
               </Typography>
             </div>
           </form>

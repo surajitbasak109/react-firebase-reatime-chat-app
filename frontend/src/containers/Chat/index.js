@@ -5,9 +5,7 @@ class Chat extends Component {
     super(props);
   }
   render() {
-    return <div>
-This is a chat component
-      </div>;
+    return <div>This is a chat component</div>;
   }
 }
 
