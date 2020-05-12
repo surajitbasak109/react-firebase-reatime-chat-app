@@ -1,4 +1,4 @@
 const Images = {
-  surajit: require("../Images/surajit.jpeg"),
+  surajit: require("../images/surajit.jpeg"),
 };
 export default Images;

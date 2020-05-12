@@ -136,6 +136,7 @@
   max-height: 100vh;
   min-height: 90vh;
   height: auto;
+  width: 40vh;
   /* padding-top: 10px; */
   /* padding-bottom: 10px; */
 }
@@ -253,6 +254,7 @@
   height: 64px;
   position: relative;
   margin-top: 0;
+  display: flex;
 }
 .input-container {
   /* IE10 */
@@ -288,4 +290,14 @@
 
 .input-field:focus {
   border: 2px solid dodgerblue;
+}
+
+.profileviewleftside .default-image-wrapper {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.viewWrapItem .default-image-wrapper {
+  margin-left: 15px;
 }

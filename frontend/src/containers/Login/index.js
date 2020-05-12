@@ -39,10 +39,10 @@ class Login extends Component {
       this.setState({isLoading: false});
     }
   }
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({...this.state, [e.target.name]: e.target.value});
   };
-  handleChecked = (e) => {
+  handleChecked = e => {
     this.setState({...this.state, [e.target.name]: e.target.checked});
   };
   async handleSubmit(e) {
@@ -52,7 +52,7 @@ class Login extends Component {
     await firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(async (result) => {
+      .then(async result => {
         let user = result.user;
         if (user) {
           await firebase
@@ -75,7 +75,7 @@ class Login extends Component {
           this.props.history.push("/chat");
         }
       })
-      .catch((err) => {
+      .catch(err => {
         this.setState({error: "Error while signing in, please try again."});
         console.log(err);
       });
@@ -206,10 +206,12 @@ class Login extends Component {
               </div>
 
               <div className="CenterAliningItems">
-                <p>Don't have an account?</p>
-                <Link to="/signun" variant="body2">
-                  Sign Up
-                </Link>
+                <p>
+                  Don't have an account?{" "}
+                  <Link to="/signup" className="body2">
+                    Sign Up
+                  </Link>
+                </p>
               </div>
             </form>
           </div>

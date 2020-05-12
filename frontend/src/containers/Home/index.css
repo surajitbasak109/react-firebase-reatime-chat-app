@@ -284,6 +284,9 @@ a.pure-button-primary {
   font-size: 2rem;
   box-sizing: border-box;
 }
+.my-super-cool-btn:hover {
+  text-decoration: none;
+}
 .my-super-cool-btn span {
   position: relative;
   box-sizing: border-box;
