@@ -31,8 +31,8 @@ class Chat extends Component {
       .collection("users")
       .doc(this.currentUserDocumentId)
       .get()
-      .then(doc => {
-        doc.data().messages.map(item => {
+      .then((doc) => {
+        doc.data().messages.map((item) => {
           this.currentUserMessages = [
             ...this.currentUserMessages,
             {
@@ -71,14 +71,14 @@ class Chat extends Component {
     }
     this.renderLisUser();
   };
-  getClassNameForUserandNotification = itemId => {
+  getClassNameForUserandNotification = (itemId) => {
     let number = 0;
     let className = "";
     let check = false;
     if (this.state.currentPeerUser && this.state.currentPeerUser.id === itemId) {
       className = "viewWrapItemFocused";
     } else {
-      this.state.displayedContactSwitchedNotification.forEach(item => {
+      this.state.displayedContactSwitchedNotification.forEach((item) => {
         if (item.notificationId.length > 0) {
           if (item.notificationId === itemId) {
             check = true;
@@ -90,8 +90,8 @@ class Chat extends Component {
     }
     return className;
   };
-  notificationErase = itemId => {
-    this.state.displayedContactSwitchedNotification.forEach(el => {
+  notificationErase = (itemId) => {
+    this.state.displayedContactSwitchedNotification.forEach((el) => {
       if (el.notificationId > 0) {
         if (el.notificationId != itemId) {
           this.notificationErase = [
@@ -120,7 +120,7 @@ class Chat extends Component {
     if (this.searchUsers.length > 0) {
       let viewListUser = [];
       let classname = "";
-      this.searchUsers.map(item => {
+      this.searchUsers.map((item) => {
         if (item.id != this.currentUserId) {
           classname = this.getClassNameForUserandNotification(item.id);
           viewListUser.push(
@@ -145,7 +145,7 @@ class Chat extends Component {
               ) : (
                 <ReactSVG
                   src={nopic}
-                  beforeInjection={svg => {
+                  beforeInjection={(svg) => {
                     svg.setAttribute("style", "width: 40px; height: 40px;");
                   }}
                   wrapper="span"
@@ -197,7 +197,7 @@ class Chat extends Component {
               ) : (
                 <ReactSVG
                   src={nopic}
-                  beforeInjection={svg => {
+                  beforeInjection={(svg) => {
                     svg.setAttribute("style", "width: 40px; height: 40px;");
                   }}
                   wrapper="span"
