@@ -25,17 +25,17 @@ class Profile extends Component {
       this.props.history.push("/");
     }
   }
-  onChangeNickname = e => {
+  onChangeNickname = (e) => {
     this.setState({
       name: e.target.value,
     });
   };
-  onChangeAboutMe = e => {
+  onChangeAboutMe = (e) => {
     this.setState({
       aboutMe: e.target.value,
     });
   };
-  onChangeAvatar = e => {
+  onChangeAvatar = (e) => {
     if (e.target.files && e.target.files[0]) {
       const prefixFiletype = e.target.files[0].type.toString();
       if (prefixFiletype.indexOf(LoginStrings.PREFIX_IMAGE) != 0) {
@@ -55,11 +55,11 @@ class Profile extends Component {
       uploadTask.on(
         LoginStrings.UPLOAD_CHANGED,
         null,
-        err => {
+        (err) => {
           this.props.showToast(0, err.message);
         },
         () => {
-          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             this.updateUserInfo(true, downloadURL);
           });
         }
@@ -114,7 +114,7 @@ class Profile extends Component {
             }}
           />
           <input
-            ref={el => (this.refInput = el)}
+            ref={(el) => (this.refInput = el)}
             accept="image/*"
             className="viewInputFile"
             type="file"

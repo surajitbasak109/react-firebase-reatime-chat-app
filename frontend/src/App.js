@@ -34,26 +34,26 @@ class App extends Component {
         />
 
         <Switch>
-          <Route exact path="/" render={props => <Home {...props} />} />
+          <Route exact path="/" render={(props) => <Home {...props} />} />
           <Route
             exact
             path="/login"
-            render={props => <Login showToast={this.showToast} {...props} />}
+            render={(props) => <Login showToast={this.showToast} {...props} />}
           />
           <Route
             exact
             path="/profile"
-            render={props => <Profile showToast={this.showToast} {...props} />}
+            render={(props) => <Profile showToast={this.showToast} {...props} />}
           />
           <Route
             exact
             path="/signup"
-            render={props => <Signup showToast={this.showToast} {...props} />}
+            render={(props) => <Signup showToast={this.showToast} {...props} />}
           />
           <Route
             exact
             path="/chat"
-            render={props => <Chat showToast={this.showToast} {...props} />}
+            render={(props) => <Chat showToast={this.showToast} {...props} />}
           />
         </Switch>
       </Router>
