@@ -7,6 +7,7 @@ import Profile from "./containers/Profile";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
 import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class App extends Component {
   showToast = (type, message) => {
@@ -29,30 +30,30 @@ class App extends Component {
         <ToastContainer
           autoClose={2000}
           hideProgressBar={true}
-          position={toast.POSITION.TOP_RIGHT}
+          position={toast.POSITION.TOP_CENTER}
         />
 
         <Switch>
-          <Route exact path="/" render={(props) => <Home {...props} />} />
+          <Route exact path="/" render={props => <Home {...props} />} />
           <Route
             exact
             path="/login"
-            render={(props) => <Login showToast={this.showToast} {...props} />}
+            render={props => <Login showToast={this.showToast} {...props} />}
           />
           <Route
             exact
             path="/profile"
-            render={(props) => <Profile showToast={this.showToast} {...props} />}
+            render={props => <Profile showToast={this.showToast} {...props} />}
           />
           <Route
             exact
             path="/signup"
-            render={(props) => <Signup showToast={this.showToast} {...props} />}
+            render={props => <Signup showToast={this.showToast} {...props} />}
           />
           <Route
             exact
             path="/chat"
-            render={(props) => <Chat showToast={this.showToast} {...props} />}
+            render={props => <Chat showToast={this.showToast} {...props} />}
           />
         </Switch>
       </Router>
